@@ -39,7 +39,7 @@ namespace ts.Completions {
     ): CompletionInfo | undefined {
         if (isInReferenceComment(sourceFile, position)) {
             const entries = PathCompletions.getTripleSlashReferenceCompletion(sourceFile, position, compilerOptions, host);
-            return entries && convertPathCompletions(entries);
+            return entries && convertPathCompletions(entries.map(e => ({ ...e, span: undefined })));
         }
 
         const contextToken = findPrecedingToken(position, sourceFile);

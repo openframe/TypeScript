@@ -3179,9 +3179,7 @@ Actual: ${stringify(fullActual)}`);
             eq(item.hasAction, hasAction, "hasAction");
             eq(item.isRecommended, options && options.isRecommended, "isRecommended");
             eq(item.insertText, options && options.insertText, "insertText");
-            if (options && options.replacementSpan) { // TODO: GH#21679
-                eq(item.replacementSpan, options && options.replacementSpan && ts.createTextSpanFromRange(options.replacementSpan), "replacementSpan");
-            }
+            eq(item.replacementSpan, options && options.replacementSpan && ts.createTextSpanFromRange(options.replacementSpan), "replacementSpan");
         }
 
         private findFile(indexOrName: string | number) {
